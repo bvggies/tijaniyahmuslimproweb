@@ -6,10 +6,20 @@ with open('index.html', 'r', encoding='utf-8') as f:
 
 # Find the blog posts section
 start_marker = '<div class="bde-loop bde-loop-grid ee-posts ee-posts-grid">'
-end_marker = '</div></div></div></section>'
+end_marker = '</div>\n</div></div>\n</section>'
 
 start_idx = content.find(start_marker)
 end_idx = content.find(end_marker, start_idx)
+
+# If not found, try alternative
+if end_idx == -1:
+    end_marker = '</div></div></div>'
+    end_idx = content.find(end_marker, start_idx)
+    # Find the next </section> after that
+    if end_idx != -1:
+        section_end = content.find('</section>', end_idx)
+        if section_end != -1:
+            end_idx = section_end + len('</section>')
 
 if start_idx == -1 or end_idx == -1:
     print("Could not find markers")
