@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Tijaniyah Muslim Pro</title>
+    <meta name="description" content="Discover all the powerful features of Tijaniyah Muslim Pro - your complete Islamic companion with prayer times, Quran, duas, AI assistant, and more.">
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+    <link rel="canonical" href="../features/index.html" />
+    <link rel="icon" href="../assets/App logo.png" sizes="32x32" />
+    <link rel="icon" href="../assets/App logo.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="../assets/App logo.png" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+
+    
+    <style>
+        /* Header Styles */
+        .modern-header {
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-top-bar {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            padding: 12px 0;
+            text-align: center;
+        }
+        
+        .header-top-bar .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .top-banner-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            transition: opacity 0.3s ease;
+        }
+        
+        .top-banner-link:hover {
+            opacity: 0.9;
+        }
+        
+        .header-main {
+            padding: 20px 0;
+        }
+        
+        .header-main .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-logo img {
+            display: block;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-link:hover img {
+            transform: scale(1.05);
+        }
+        
+        .main-nav {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            gap: 5px;
+            z-index: 1001;
+        }
+        
+        .hamburger-line {
+            width: 28px;
+            height: 3px;
+            background: #1a472a;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a472a;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #1a472a;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .has-submenu:hover .dropdown-icon {
+            transform: rotate(180deg);
+        }
+        
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border-radius: 12px;
+            list-style: none;
+            padding: 12px 0;
+            margin: 12px 0 0 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .has-submenu:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .submenu li {
+            padding: 0;
+        }
+        
+        .submenu a {
+            display: block;
+            padding: 12px 24px;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .submenu a:hover {
+            background: #f8f9fa;
+            color: #1a472a;
+            padding-left: 28px;
+        }
+        
+        /* Footer Styles */
+        .modern-footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            margin-top: 100px;
+        }
+        
+        .footer-main {
+            padding: 80px 0 60px;
+        }
+        
+        .footer-main .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+        }
+        
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-brand-column {
+            grid-column: span 2;
+        }
+        
+        .footer-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #1a472a, #2d5a3d);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+        
+        .footer-brand {
+            max-width: 500px;
+        }
+        
+        .footer-brand-img {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-brand-img:hover {
+            opacity: 1;
+        }
+        
+        .footer-brand-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .footer-social-section {
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-social-section .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .social-icon:hover {
+            background: #1a472a;
+            transform: translateY(-5px);
+            border-color: #2d5a3d;
+            box-shadow: 0 8px 20px rgba(26, 71, 42, 0.3);
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin: 0;
+        }
+        
+        .footer-bottom {
+            padding: 40px 0;
+        }
+        
+        .footer-bottom .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-bottom-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .footer-legal-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            justify-content: center;
+        }
+        
+        .footer-legal-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-legal-links a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-copyright {
+            text-align: center;
+        }
+        
+        .footer-copyright p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            margin: 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-brand-column {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav-list {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 100px 30px 30px;
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                gap: 0;
+                overflow-y: auto;
+            }
+            
+            .nav-list.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .nav-link {
+                padding: 18px 0;
+                width: 100%;
+            }
+            
+            .nav-link::after {
+                display: none;
+            }
+            
+            .submenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #f8f9fa;
+                margin: 0;
+                border-radius: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .has-submenu:hover .submenu,
+            .has-submenu.active .submenu {
+                max-height: 300px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-brand-column {
+                grid-column: span 1;
+            }
+            
+            .footer-legal-links {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+    
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navList = document.querySelector('.nav-list');
+            const navItems = document.querySelectorAll('.has-submenu');
+            
+            if (menuBtn && navList) {
+                menuBtn.addEventListener('click', function() {
+                    const isExpanded = navList.classList.contains('active');
+                    navList.classList.toggle('active');
+                    menuBtn.setAttribute('aria-expanded', !isExpanded);
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!menuBtn.contains(e.target) && !navList.contains(e.target)) {
+                        navList.classList.remove('active');
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Handle submenu toggle on mobile
+                navItems.forEach(item => {
+                    const link = item.querySelector('.nav-link');
+                    link.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            item.classList.toggle('active');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+
+    
+    <style>
+        :root {
+            --primary-color: #1a472a;
+            --primary-dark: #0f2e1a;
+            --primary-light: #2d5a3d;
+            --accent-color: #3d6b4d;
+            --text-dark: #1a1a1a;
+            --text-gray: #555555;
+            --text-light: #888888;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Hero Section */
+        .features-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--accent-color) 100%);
+            padding: 160px 20px 120px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .features-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .features-hero h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+        
+        .features-hero p {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            opacity: 0.95;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Section */
+        .features-section {
+            padding: 100px 0;
+        }
+        
+        .features-section-alt {
+            background: var(--bg-light);
+        }
+        
+        /* Feature Showcase */
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .feature-showcase.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .feature-showcase.reverse .feature-content {
+            order: 2;
+        }
+        
+        .feature-showcase.reverse .feature-image {
+            order: 1;
+        }
+        
+        .feature-content h2 {
+            color: var(--primary-color);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .feature-content p {
+            color: var(--text-gray);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+        
+        .feature-list li {
+            color: var(--text-gray);
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .feature-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: white;
+            padding: 20px;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--primary-light));
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .feature-card-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 2rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .feature-card-image {
+            margin-top: 24px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .feature-card-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover .feature-card-image img {
+            transform: scale(1.1);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            padding: 80px 0;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: block;
+            color: white;
+        }
+        
+        .stat-label {
+            font-size: 1.25rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            color: var(--primary-color);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        .cta-content p {
+            color: var(--text-gray);
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cta-button img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .feature-showcase {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .feature-showcase.reverse .feature-content,
+            .feature-showcase.reverse .feature-image {
+                order: initial;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .features-hero {
+                padding: 120px 20px 80px;
+            }
+            
+            .features-section {
+                padding: 60px 0;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .feature-card {
+                padding: 32px 24px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+
+</head>
+<body class="page-template-default page">
+    <header class="modern-header">
+    <div class="header-top-bar">
+        <div class="container">
+            <a href="../index.html" class="top-banner-link">❄️ Send essential comfort today to transform a winter of desperation into one of hope ❄️</a>
+        </div>
+    </div>
+    <div class="header-main">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <a href="../index.html" class="logo-link">
+                        <img src="../assets/App logo.png" alt="Tijaniyah Muslim Pro Logo" width="150" height="150">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../about-us/index.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item has-submenu">
+                            <a href="../features/index.html" class="nav-link">
+                                Features
+                                <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="../features/index.html">Core Features</a></li>
+                                <li><a href="../ummah-pro/index.html">Ummah Pro</a></li>
+                                <li><a href="../academy-islamic-courses/index.html">Academy</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../contact-us/index.html" class="nav-link">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../privacy-policy/index.html" class="nav-link">Privacy Policy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../terms/index.html" class="nav-link">Terms</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+    
+    <section class="features-hero">
+        <div class="features-hero-content">
+            <h1>Complete Islamic Companion</h1>
+            <p>Discover all the powerful features that make Tijaniyah Muslim Pro your trusted digital companion for practicing your Deen.</p>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="feature-showcase">
+                <div class="feature-content">
+                    <h2>Prayer Times & Qibla</h2>
+                    <p>Never miss a prayer with accurate, location-based prayer times. Our advanced algorithm calculates precise prayer times based on your location, with beautiful prayer cards and clear indicators for current and next prayers.</p>
+                    <ul class="feature-list">
+                        <li>Accurate location-based prayer times</li>
+                        <li>Beautiful prayer cards with animations</li>
+                        <li>Current and next prayer indicators</li>
+                        <li>Adhan notifications</li>
+                        <li>Qibla compass with real-time direction</li>
+                        <li>Distance to Kaaba display</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="assets/home screen.PNG" alt="Prayer Times Screen" loading="lazy">
+                </div>
+            </div>
+
+            <div class="feature-showcase reverse">
+                <div class="feature-content">
+                    <h2>Read the Holy Quran</h2>
+                    <p>Access the complete Holy Quran with multiple translations, beautiful Arabic text, and powerful search capabilities. Bookmark your favorite verses and read with ease.</p>
+                    <ul class="feature-list">
+                        <li>Complete Quran with Arabic text</li>
+                        <li>Multiple translations</li>
+                        <li>Verse-by-verse reading</li>
+                        <li>Bookmark favorite verses</li>
+                        <li>Powerful search functionality</li>
+                        <li>Audio recitation</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="assets/quran screen.jpg" alt="Quran Reader Screen" loading="lazy">
+                </div>
+            </div>
+
+            <div class="feature-showcase">
+                <div class="feature-content">
+                    <h2>Duas & Supplications</h2>
+                    <p>Comprehensive collection of Islamic prayers and supplications for every occasion. Access authentic duas with Arabic text, transliteration, and translations.</p>
+                    <ul class="feature-list">
+                        <li>Extensive collection of duas</li>
+                        <li>Arabic text with transliteration</li>
+                        <li>Multiple translations</li>
+                        <li>Categorized by occasion</li>
+                        <li>Search and favorites</li>
+                        <li>Daily dhikr reminders</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="assets/duas screen.jpg" alt="Duas Screen" loading="lazy">
+                </div>
+            </div>
+
+            <div class="feature-showcase reverse">
+                <div class="feature-content">
+                    <h2>AI Noor - Your AI-Powered Islamic Assistant</h2>
+                    <p>Get instant answers to your Islamic questions with our AI-powered assistant. AI Noor provides authentic, scholar-verified responses to help you on your spiritual journey.</p>
+                    <ul class="feature-list">
+                        <li>AI-powered Islamic guidance</li>
+                        <li>Instant answers to questions</li>
+                        <li>Scholar-verified responses</li>
+                        <li>Available 24/7</li>
+                        <li>Multiple languages support</li>
+                        <li>Contextual understanding</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="assets/ai noor screen.jpg" alt="AI Noor Screen" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section features-section-alt">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary-color); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; margin-bottom: 60px;">All Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">🕌</div>
+                    <h3>Prayer Times</h3>
+                    <p>Accurate location-based prayer times with beautiful cards and current/next prayer indicators.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">🧭</div>
+                    <h3>Qibla Compass</h3>
+                    <p>Real-time compass with accurate Qibla direction calculation and distance to Kaaba display.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">📿</div>
+                    <h3>Digital Tasbih</h3>
+                    <p>Interactive counter with animations, multiple targets (33, 99, 100, 1000), and haptic feedback.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">📖</div>
+                    <h3>Quran Reader</h3>
+                    <p>Complete Quran with Arabic text, translations, bookmarks, and search capabilities.</p>
+                    <div class="feature-card-image">
+                        <img src="assets/quran screen2.PNG" alt="Quran Reader" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">🤲</div>
+                    <h3>Duas & Supplications</h3>
+                    <p>Comprehensive collection with Arabic text, transliteration, translation, search, and favorites.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">📝</div>
+                    <h3>Wazifa Tracker</h3>
+                    <p>Track daily Islamic practices with progress tracking and filter options.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">📋</div>
+                    <h3>Lazim Tracker</h3>
+                    <p>Track your daily Islamic commitments and spiritual routines.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">🕌</div>
+                    <h3>Zikr Jumma</h3>
+                    <p>Special Friday prayers and dhikr for your spiritual practice.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">📔</div>
+                    <h3>Islamic Journal</h3>
+                    <p>Reflect on your spiritual journey and document your growth.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">👨‍🏫</div>
+                    <h3>Scholars</h3>
+                    <p>Learn from Islamic scholars and teachers.</p>
+                    <div class="feature-card-image">
+                        <img src="assets/scholars screen.PNG" alt="Scholars" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">👥</div>
+                    <h3>Community</h3>
+                    <p>Connect with fellow Muslims worldwide.</p>
+                    <div class="feature-card-image">
+                        <img src="assets/community screen.jpg" alt="Community" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">📍</div>
+                    <h3>Mosque Locator</h3>
+                    <p>Find nearby mosques and prayer facilities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">🕋</div>
+                    <h3>Makkah Live</h3>
+                    <p>Watch live streams from the Holy Kaaba.</p>
+                    <div class="feature-card-image">
+                        <img src="assets/makkah live screen.PNG" alt="Makkah Live" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">🤖</div>
+                    <h3>AI Noor</h3>
+                    <p>AI-powered Islamic assistant for your questions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">💝</div>
+                    <h3>Donate</h3>
+                    <p>Support Islamic causes and charitable work.</p>
+                    <div class="feature-card-image">
+                        <img src="assets/zakat screen.jpg" alt="Donate" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">🕐</div>
+                    <h3>Hajj & Umrah</h3>
+                    <p>Complete guide and tools for Hajj and Umrah pilgrimage.</p>
+                    <div class="feature-card-image">
+                        <img src="assets/hajj screen.jpg" alt="Hajj" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">📚</div>
+                    <h3>Islamic Lessons</h3>
+                    <p>Learn from comprehensive Islamic courses and lessons.</p>
+                    <div class="feature-card-image">
+                        <img src="assets/lessons screen.jpg" alt="Lessons" loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-icon">⭐</div>
+                    <h3>More Features</h3>
+                    <p>Discover additional powerful features to enhance your Islamic practice.</p>
+                    <div class="feature-card-image">
+                        <img src="assets/more features screen.PNG" alt="More Features" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">160+ million</span>
+                    <p class="stat-label">Downloads worldwide</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">9.7M</span>
+                    <p class="stat-label">Active users</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.7</span>
+                    <p class="stat-label">App Store rating</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <p class="stat-label">Languages supported</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start Your Spiritual Journey Today</h2>
+                <p>Download Tijaniyah Muslim Pro and experience the complete Islamic companion designed to strengthen your connection with Allah.</p>
+                <div class="cta-buttons">
+                    <a href="https://apps.apple.com/app/muslim-pro-azan-quran-qibla/id388389451" class="cta-button" target="_blank" rel="noopener">
+                        <img src="assets/wp-content/uploads/2024/09/appstore-200-69.png" alt="Download on App Store">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.bitsmedia.android.tijaniyahmuslimpro" class="cta-button" target="_blank" rel="noopener">
+                        <img src="assets/wp-content/uploads/2024/09/play_store-200.png" alt="Get it on Google Play">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-title">Who We Are</h3>
+                    <ul class="footer-links">
+                        <li><a href="../about-us/index.html">About Us</a></li>
+                        <li><a href="#">Job Openings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">What We Do</h3>
+                    <ul class="footer-links">
+                        <li><a href="../features/index.html">Our Features</a></li>
+                        <li><a href="#">Press Releases</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">For Users</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Gift Premium</a></li>
+                        <li><a href="#">Redeem Premium</a></li>
+                        <li><a href="../contact-us/index.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">For Business</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Corporate Gifting</a></li>
+                        <li><a href="../advertise/index.html">Advertise With Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-brand-column">
+                    <div class="footer-brand">
+                        <img src="../assets/wp-content/uploads/2024/07/Untitled-design.png" alt="Tijaniyah Muslim Pro" class="footer-brand-img">
+                        <p class="footer-brand-text">Tijaniyah Muslim Pro is the essential Islamic app companion for Muslims. Now with Qalbox, we are the digital home for all things Muslim.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-social-section">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/tijaniyahmuslimpro" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/tijaniyahmuslimpro" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 512 512" fill="currentColor">
+                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/tijaniyahmuslimproofficial/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCPTHHlJEmpnPlS0kW4eo4XQ" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="-4 -2 32 32" fill="currentColor">
+                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <div class="footer-legal-links">
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Press</a>
+                    <a href="../cookies-policy/index.html">Cookies Policy</a>
+                    <a href="../privacy-policy/index.html">Privacy Policy</a>
+                    <a href="../terms/index.html">Terms of Use</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>Copyright © 2025 Tijaniyah Muslim Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
