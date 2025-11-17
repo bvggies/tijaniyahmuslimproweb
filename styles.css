@@ -46,6 +46,48 @@ body {
     display: block;
 }
 
+/* Fix background for Complete Islamic Companion section */
+.bde-section-38-329 {
+    background: #f8f9fa !important;
+    padding: 80px 0 !important;
+}
+
+.bde-section-38-329 .section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.bde-section-38-329 .bde-loop-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.bde-section-38-329 .bde-loop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.bde-section-38-329 .bde-loop-item__wrap {
+    padding: 24px;
+}
+
+.bde-section-38-329 .ee-post-title {
+    color: #1a472a;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.bde-section-38-329 .ee-post-content {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
