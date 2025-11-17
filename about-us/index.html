@@ -8,6 +8,243 @@
     <link type="text/css" media="all" href="../styles-muslimpro.css" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css" />
     
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 50%, #3d6b4d 100%);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .card h2 {
+            color: #1a472a;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .card h3 {
+            color: #1a472a;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .card p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .card ul {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .card li {
+            color: #555;
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            border-color: #1a472a;
+            box-shadow: 0 4px 15px rgba(26, 71, 42, 0.1);
+        }
+        .feature-card h3 {
+            color: #1a472a;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .stats-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 5rem 2rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 3rem;
+            color: #1a472a;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .stat-item p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1a472a;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(26, 71, 42, 0.3);
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+        }
+        .contact-card h3 {
+            color: #1a472a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .contact-card p {
+            color: #666;
+            margin: 0;
+        }
+        .last-updated {
+            font-style: italic;
+            color: #888;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 5rem 1.5rem 4rem;
+            }
+            .content-section {
+                padding: 3rem 1.5rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+
 </head>
 <body class="page-template-default page">
     <header class="bde-header-builder-25-100 bde-header-builder bde-header-builder--sticky bde-header-builder--sticky-scroll-fade" data-sticky-scroll-hide-after="900" data-sticky-reveal-on-scroll-up="yes">
@@ -100,177 +337,130 @@
 
 
 </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>About Tijaniyah Muslim Pro</h1>
+        <p>Your trusted Islamic companion, empowering Muslims worldwide with accurate prayer times, comprehensive Quran resources, and meaningful Islamic content.</p>
+    </section>
 
     <!-- Main Content -->
-    <section class="bde-section-38-302 bde-section" style="padding: 6rem 0;">
-        <div class="section-container">
-            <h1 class="bde-heading-38-304 bde-heading" style="text-align: center; margin-bottom: 3rem; font-size: 3.5rem;">
-                About Tijaniyah Muslim Pro
-            </h1>
-            
-            <div class="bde-text-38-305 bde-text" style="max-width: 900px; margin: 0 auto 4rem; font-size: 1.2rem; line-height: 1.8; text-align: center;">
-                Tijaniyah Muslim Pro is a comprehensive Islamic mobile application built with React Native and Expo, featuring beautiful UI and smooth animations. We provide essential Islamic tools and resources that engage, inspire, and support Muslims around the world.
-            </div>
+    <section class="content-section">
+        <div class="card">
+            <h2>Our Mission</h2>
+            <p>Tijaniyah Muslim Pro is dedicated to being your digital companion in practicing your Deen. We strive to provide accurate prayer times, comprehensive Quran resources, and meaningful Islamic content that helps Muslims worldwide stay connected to their faith.</p>
+            <p>From accurate prayer times and Qibla compass to Quran reading, digital tasbih, duas, Wazifa tracking, Islamic journal, AI-powered guidance, and community features - Tijaniyah Muslim Pro is your complete digital companion for practicing your Deen.</p>
+        </div>
 
-            <div class="bde-columns-38-467 bde-columns" style="max-width: 1200px; margin: 0 auto;">
-                <div class="bde-column-38-468 bde-column">
-                    <h2 class="bde-heading" style="font-size: 2rem; margin-bottom: 1.5rem; color: #1a472a;">
-                        Our Mission
-                    </h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">
-                        Tijaniyah Muslim Pro is dedicated to being your digital companion in practicing your Deen. We strive to provide accurate prayer times, comprehensive Quran resources, and meaningful Islamic content that helps Muslims worldwide stay connected to their faith.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
-                        From accurate prayer times and Qibla compass to Quran reading, digital tasbih, duas, Wazifa tracking, Islamic journal, AI-powered guidance, and community features - Tijaniyah Muslim Pro is your complete digital companion for practicing your Deen.
-                    </p>
+        <div class="card">
+            <h2>Our Vision</h2>
+            <p>We envision a world where every Muslim has easy access to authentic Islamic resources and tools that strengthen their connection with Allah and their community.</p>
+            <p>Through technology and innovation, we aim to make Islamic knowledge and practices accessible to Muslims everywhere, anytime, anywhere.</p>
+        </div>
+
+        <div class="card">
+            <h2>Our Core Values</h2>
+            <div class="grid">
+                <div class="feature-card">
+                    <h3>Authenticity</h3>
+                    <p>We ensure all our content and resources are based on authentic Islamic sources and verified by Islamic scholars.</p>
                 </div>
-                <div class="bde-column-38-469 bde-column">
-                    <h2 class="bde-heading" style="font-size: 2rem; margin-bottom: 1.5rem; color: #1a472a;">
-                        Our Vision
-                    </h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">
-                        We envision a world where every Muslim has easy access to authentic Islamic resources and tools that strengthen their connection with Allah and their community.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
-                        Through technology and innovation, we aim to make Islamic knowledge and practices accessible to Muslims everywhere, anytime, anywhere.
-                    </p>
+                <div class="feature-card">
+                    <h3>Accessibility</h3>
+                    <p>We believe Islamic knowledge should be accessible to everyone, regardless of location or background.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Community</h3>
+                    <p>We foster a sense of unity and belonging among Muslims worldwide through our platform.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Values Section -->
-    <section class="bde-section" style="background: #f8f9fa; padding: 5rem 0;">
-        <div class="section-container">
-            <h2 class="bde-heading" style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #1a472a;">
-                Our Core Values
-            </h2>
-            <div class="bde-columns" style="max-width: 1200px; margin: 0 auto;">
-                <div class="bde-column">
-                    <h3 style="font-size: 1.5rem; color: #1a472a; margin-bottom: 1rem;">Authenticity</h3>
-                    <p style="color: #666; line-height: 1.8;">We ensure all our content and resources are based on authentic Islamic sources and verified by Islamic scholars.</p>
+        <div class="card">
+            <h2>Our Features</h2>
+            <div class="grid">
+                <div class="feature-card">
+                    <h3>Prayer Times</h3>
+                    <p>Accurate location-based prayer times with beautiful cards and current/next prayer indicators.</p>
                 </div>
-                <div class="bde-column">
-                    <h3 style="font-size: 1.5rem; color: #1a472a; margin-bottom: 1rem;">Accessibility</h3>
-                    <p style="color: #666; line-height: 1.8;">We believe Islamic knowledge should be accessible to everyone, regardless of location or background.</p>
+                <div class="feature-card">
+                    <h3>Qibla Compass</h3>
+                    <p>Real-time compass with accurate Qibla direction calculation and distance to Kaaba display.</p>
                 </div>
-                <div class="bde-column">
-                    <h3 style="font-size: 1.5rem; color: #1a472a; margin-bottom: 1rem;">Community</h3>
-                    <p style="color: #666; line-height: 1.8;">We foster a sense of unity and belonging among Muslims worldwide through our platform.</p>
+                <div class="feature-card">
+                    <h3>Duas & Supplications</h3>
+                    <p>Comprehensive collection with Arabic text, transliteration, translation, search, and favorites.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="bde-section" style="background: white; padding: 5rem 0;">
-        <div class="section-container">
-            <h2 class="bde-heading" style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #1a472a;">
-                Our Features
-            </h2>
-            <div style="max-width: 1000px; margin: 0 auto;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Prayer Times</h3>
-                        <p style="color: #666; line-height: 1.6;">Accurate location-based prayer times with beautiful cards and current/next prayer indicators.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Qibla Compass</h3>
-                        <p style="color: #666; line-height: 1.6;">Real-time compass with accurate Qibla direction calculation and distance to Kaaba display.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Duas & Supplications</h3>
-                        <p style="color: #666; line-height: 1.6;">Comprehensive collection with Arabic text, transliteration, translation, search, and favorites.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Quran Reader</h3>
-                        <p style="color: #666; line-height: 1.6;">Complete Quran with Arabic text, translations, bookmarks, and search capabilities.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Digital Tasbih</h3>
-                        <p style="color: #666; line-height: 1.6;">Interactive counter with animations, multiple targets (33, 99, 100, 1000), and haptic feedback.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Wazifa Tracker</h3>
-                        <p style="color: #666; line-height: 1.6;">Track daily Islamic practices with progress tracking and filter options.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Lazim Tracker</h3>
-                        <p style="color: #666; line-height: 1.6;">Track your daily Islamic commitments and spiritual routines.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Zikr Jumma</h3>
-                        <p style="color: #666; line-height: 1.6;">Special Friday prayers and dhikr for your spiritual practice.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Islamic Journal</h3>
-                        <p style="color: #666; line-height: 1.6;">Reflect on your spiritual journey and document your growth.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Scholars</h3>
-                        <p style="color: #666; line-height: 1.6;">Learn from Islamic scholars and teachers.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Community</h3>
-                        <p style="color: #666; line-height: 1.6;">Connect with fellow Muslims worldwide.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Mosque Locator</h3>
-                        <p style="color: #666; line-height: 1.6;">Find nearby mosques and prayer facilities.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Makkah Live</h3>
-                        <p style="color: #666; line-height: 1.6;">Watch live streams from the Holy Kaaba.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">AI Noor</h3>
-                        <p style="color: #666; line-height: 1.6;">AI-powered Islamic assistant for your questions.</p>
-                    </div>
-                    <div style="padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-                        <h3 style="font-size: 1.3rem; color: #1a472a; margin-bottom: 0.75rem;">Donate</h3>
-                        <p style="color: #666; line-height: 1.6;">Support Islamic causes and charitable work.</p>
-                    </div>
+                <div class="feature-card">
+                    <h3>Quran Reader</h3>
+                    <p>Complete Quran with Arabic text, translations, bookmarks, and search capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Digital Tasbih</h3>
+                    <p>Interactive counter with animations, multiple targets (33, 99, 100, 1000), and haptic feedback.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Wazifa Tracker</h3>
+                    <p>Track daily Islamic practices with progress tracking and filter options.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Lazim Tracker</h3>
+                    <p>Track your daily Islamic commitments and spiritual routines.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Zikr Jumma</h3>
+                    <p>Special Friday prayers and dhikr for your spiritual practice.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Islamic Journal</h3>
+                    <p>Reflect on your spiritual journey and document your growth.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Scholars</h3>
+                    <p>Learn from Islamic scholars and teachers.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Community</h3>
+                    <p>Connect with fellow Muslims worldwide.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Mosque Locator</h3>
+                    <p>Find nearby mosques and prayer facilities.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Makkah Live</h3>
+                    <p>Watch live streams from the Holy Kaaba.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>AI Noor</h3>
+                    <p>AI-powered Islamic assistant for your questions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Donate</h3>
+                    <p>Support Islamic causes and charitable work.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="bde-section" style="padding: 5rem 0;">
-        <div class="section-container">
-            <div class="bde-columns" style="max-width: 1200px; margin: 0 auto; text-align: center;">
-                <div class="bde-column">
-                    <h3 style="font-size: 3rem; color: #1a472a; margin-bottom: 0.5rem;">160+ million</h3>
-                    <p style="color: #666;">Downloads worldwide</p>
-                </div>
-                <div class="bde-column">
-                    <h3 style="font-size: 3rem; color: #1a472a; margin-bottom: 0.5rem;">9.7M</h3>
-                    <p style="color: #666;">Active users</p>
-                </div>
-                <div class="bde-column">
-                    <h3 style="font-size: 3rem; color: #1a472a; margin-bottom: 0.5rem;">4.7</h3>
-                    <p style="color: #666;">App Store rating</p>
-                </div>
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>160+ million</h3>
+                <p>Downloads worldwide</p>
+            </div>
+            <div class="stat-item">
+                <h3>9.7M</h3>
+                <p>Active users</p>
+            </div>
+            <div class="stat-item">
+                <h3>4.7</h3>
+                <p>App Store rating</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bde-section" style="background: #1a472a; color: white; padding: 4rem 0 2rem;">
-        <div class="section-container">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <p style="font-size: 1.1rem; margin-bottom: 1rem;">Tijaniyah Muslim Pro</p>
-                <p style="opacity: 0.9;">The essential Islamic app companion for Muslims worldwide.</p>
-            </div>
-            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
-                <p style="font-size: 0.9rem; opacity: 0.8;">Copyright © 2025 Tijaniyah Muslim Pro. All rights reserved.</p>
-                <div style="margin-top: 1rem;">
-                    <a href="../privacy-policy/index.html" style="color: white; margin: 0 1rem; text-decoration: none;">Privacy Policy</a>
-                    <a href="../terms/index.html" style="color: white; margin: 0 1rem; text-decoration: none;">Terms of Use</a>
-                    <a href="../contact-us/index.html" style="color: white; margin: 0 1rem; text-decoration: none;">Contact Us</a>
-                </div>
-            </div>
-        </div>
     <footer class="bde-section-28-100 bde-section">
   
   
@@ -515,4 +705,3 @@ Copyright © 2025 Bitsmedia Pte. Ltd. All rights reserved.
 </footer>
 </body>
 </html>
-
