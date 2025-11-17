@@ -402,256 +402,379 @@
 
     
     <style>
+        
+
+    <link type="text/css" media="all" href="../styles-muslimpro.css" rel="stylesheet" />
+
+    
+    <style>
         /* Header Styles */
-        .site-header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .modern-header {
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
         
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .header-top {
+        .header-top-bar {
             background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
             padding: 12px 0;
             text-align: center;
         }
         
-        .header-top .top-banner {
-            color: white;
+        .header-top-bar .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .top-banner-link {
+            color: #ffffff;
             text-decoration: none;
             font-size: 0.9rem;
-            display: block;
+            font-weight: 500;
+            display: inline-block;
+            transition: opacity 0.3s ease;
+        }
+        
+        .top-banner-link:hover {
+            opacity: 0.9;
         }
         
         .header-main {
+            padding: 20px 0;
+        }
+        
+        .header-main .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 0;
         }
         
         .header-logo img {
             display: block;
             height: auto;
+            transition: transform 0.3s ease;
         }
         
-        .header-nav {
+        .logo-link:hover img {
+            transform: scale(1.05);
+        }
+        
+        .main-nav {
             flex: 1;
             display: flex;
             justify-content: flex-end;
         }
         
-        .mobile-menu-toggle {
+        .mobile-menu-btn {
             display: none;
             flex-direction: column;
             background: none;
             border: none;
             cursor: pointer;
             padding: 8px;
-            gap: 4px;
+            gap: 5px;
+            z-index: 1001;
         }
         
-        .mobile-menu-toggle span {
-            width: 25px;
+        .hamburger-line {
+            width: 28px;
             height: 3px;
-            background: var(--primary-color);
-            transition: all 0.3s;
+            background: #1a472a;
+            border-radius: 2px;
+            transition: all 0.3s ease;
         }
         
-        .nav-menu {
+        .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .nav-list {
             display: flex;
             list-style: none;
-            gap: 32px;
-            align-items: center;
             margin: 0;
             padding: 0;
+            gap: 40px;
+            align-items: center;
         }
         
-        .nav-menu li {
+        .nav-item {
             position: relative;
         }
         
-        .nav-menu a {
-            color: var(--text-dark);
+        .nav-link {
+            color: #1a1a1a;
             text-decoration: none;
             font-weight: 500;
             font-size: 1rem;
-            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+            position: relative;
         }
         
-        .nav-menu a:hover {
-            color: var(--primary-color);
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a472a;
+            transition: width 0.3s ease;
         }
         
-        .has-dropdown .dropdown-arrow {
-            font-size: 0.7rem;
-            margin-left: 4px;
+        .nav-link:hover {
+            color: #1a472a;
         }
         
-        .dropdown-menu {
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .has-submenu:hover .dropdown-icon {
+            transform: rotate(180deg);
+        }
+        
+        .submenu {
             position: absolute;
             top: 100%;
             left: 0;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border-radius: 12px;
             list-style: none;
-            padding: 8px 0;
-            margin: 8px 0 0 0;
-            min-width: 180px;
+            padding: 12px 0;
+            margin: 12px 0 0 0;
+            min-width: 200px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
         
-        .has-dropdown:hover .dropdown-menu {
+        .has-submenu:hover .submenu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
         
-        .dropdown-menu li {
+        .submenu li {
             padding: 0;
         }
         
-        .dropdown-menu a {
+        .submenu a {
             display: block;
-            padding: 10px 20px;
-            color: var(--text-dark);
+            padding: 12px 24px;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
         }
         
-        .dropdown-menu a:hover {
-            background: var(--bg-light);
-            color: var(--primary-color);
+        .submenu a:hover {
+            background: #f8f9fa;
+            color: #1a472a;
+            padding-left: 28px;
         }
         
         /* Footer Styles */
-        .site-footer {
+        .modern-footer {
             background: #1a1a1a;
-            color: white;
-            padding: 60px 0 30px;
-            margin-top: 80px;
+            color: #ffffff;
+            margin-top: 100px;
         }
         
-        .footer-container {
+        .footer-main {
+            padding: 80px 0 60px;
+        }
+        
+        .footer-main .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
         }
         
-        .footer-column h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: white;
+        .footer-column {
+            display: flex;
+            flex-direction: column;
         }
         
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-column a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-size: 0.9375rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-column a:hover {
-            color: white;
-        }
-        
-        .footer-brand {
+        .footer-brand-column {
             grid-column: span 2;
         }
         
-        .footer-brand img {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 16px;
+        .footer-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 12px;
         }
         
-        .footer-brand p {
-            color: rgba(255,255,255,0.8);
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #1a472a, #2d5a3d);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
             font-size: 0.9375rem;
-            line-height: 1.6;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+        
+        .footer-brand {
+            max-width: 500px;
+        }
+        
+        .footer-brand-img {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-brand-img:hover {
+            opacity: 1;
+        }
+        
+        .footer-brand-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9375rem;
+            line-height: 1.7;
             margin: 0;
         }
         
-        .footer-social {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 30px;
+        .footer-social-section {
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.05);
         }
         
-        .footer-social a {
-            width: 40px;
-            height: 40px;
+        .footer-social-section .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon {
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
-            transition: all 0.3s;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
         
-        .footer-social a:hover {
-            background: var(--primary-color);
-            transform: translateY(-3px);
+        .social-icon:hover {
+            background: #1a472a;
+            transform: translateY(-5px);
+            border-color: #2d5a3d;
+            box-shadow: 0 8px 20px rgba(26, 71, 42, 0.3);
         }
         
         .footer-divider {
             height: 1px;
-            background: rgba(255,255,255,0.1);
-            margin: 30px 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin: 0;
         }
         
         .footer-bottom {
+            padding: 40px 0;
+        }
+        
+        .footer-bottom .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-bottom-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
         }
         
-        .footer-links {
+        .footer-legal-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 24px;
+            gap: 28px;
             justify-content: center;
         }
         
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
+        .footer-legal-links a {
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             font-size: 0.875rem;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
         
-        .footer-links a:hover {
-            color: white;
+        .footer-legal-links a:hover {
+            color: #ffffff;
         }
         
         .footer-copyright {
@@ -659,184 +782,185 @@
         }
         
         .footer-copyright p {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.875rem;
             margin: 0;
         }
         
         /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-brand-column {
+                grid-column: span 1;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .mobile-menu-toggle {
+            .mobile-menu-btn {
                 display: flex;
             }
             
-            .nav-menu {
+            .nav-list {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 280px;
+                width: 300px;
                 height: 100vh;
-                background: white;
+                background: #ffffff;
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 80px 30px 30px;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-                transition: right 0.3s;
+                padding: 100px 30px 30px;
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 gap: 0;
+                overflow-y: auto;
             }
             
-            .nav-menu.active {
+            .nav-list.active {
                 right: 0;
             }
             
-            .nav-menu li {
+            .nav-item {
                 width: 100%;
-                border-bottom: 1px solid var(--border-color);
+                border-bottom: 1px solid #f0f0f0;
             }
             
-            .nav-menu a {
-                display: block;
-                padding: 15px 0;
+            .nav-link {
+                padding: 18px 0;
+                width: 100%;
             }
             
-            .dropdown-menu {
+            .nav-link::after {
+                display: none;
+            }
+            
+            .submenu {
                 position: static;
                 opacity: 1;
                 visibility: visible;
                 transform: none;
                 box-shadow: none;
-                background: var(--bg-light);
+                background: #f8f9fa;
                 margin: 0;
                 border-radius: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
             }
             
-            .footer-brand {
+            .has-submenu:hover .submenu,
+            .has-submenu.active .submenu {
+                max-height: 300px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-brand-column {
                 grid-column: span 1;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
+            .footer-legal-links {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
             }
         }
     </style>
     
     <script>
-        // Mobile menu toggle
+        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const menu = document.querySelector('.nav-menu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navList = document.querySelector('.nav-list');
+            const navItems = document.querySelectorAll('.has-submenu');
             
-            if (toggle && menu) {
-                toggle.addEventListener('click', function() {
-                    menu.classList.toggle('active');
-                    const isExpanded = menu.classList.contains('active');
-                    toggle.setAttribute('aria-expanded', isExpanded);
+            if (menuBtn && navList) {
+                menuBtn.addEventListener('click', function() {
+                    const isExpanded = navList.classList.contains('active');
+                    navList.classList.toggle('active');
+                    menuBtn.setAttribute('aria-expanded', !isExpanded);
                 });
                 
                 // Close menu when clicking outside
                 document.addEventListener('click', function(e) {
-                    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-                        menu.classList.remove('active');
-                        toggle.setAttribute('aria-expanded', 'false');
+                    if (!menuBtn.contains(e.target) && !navList.contains(e.target)) {
+                        navList.classList.remove('active');
+                        menuBtn.setAttribute('aria-expanded', 'false');
                     }
+                });
+                
+                // Handle submenu toggle on mobile
+                navItems.forEach(item => {
+                    const link = item.querySelector('.nav-link');
+                    link.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            item.classList.toggle('active');
+                        }
+                    });
                 });
             }
         });
     </script>
 
-    <link type="text/css" media="all" href="../styles-muslimpro.css" rel="stylesheet" />
 </head>
 <body class="page-template-default page">
-    <header class="bde-header-builder-25-100 bde-header-builder bde-header-builder--sticky bde-header-builder--sticky-scroll-fade" data-sticky-scroll-hide-after="900" data-sticky-reveal-on-scroll-up="yes">
-
-<div class="bde-header-builder__container"><div class="bde-div-25-170 bde-div">
-  
-  
-	
-
-
-
-<a class="bde-text-link-25-171 bde-text-link breakdance-link" href="../winter-aid/index.html" target="_self" data-type="url">
-  ❄️ Send essential comfort today to transform a winter of desperation into one of hope ❄️
-
-</a>
-</div><div class="bde-columns-25-156 bde-columns"><div class="bde-column-25-157 bde-column">
-  
-  
-	
-
-
-
-<div class="bde-image-25-101 bde-image">
-<figure class="breakdance-image breakdance-image--56">
-	<div class="breakdance-image-container">
-		<div class="breakdance-image-clip"><a class="breakdance-image-link breakdance-image-link--url" href="../index.html" target="_self" rel="noopener" data-sub-html="" data-lg-size="-"><img class="breakdance-image-object" src="../assets/App logo.png" width="150" height="150" alt="Tijaniyah Muslim Pro Logo"></a></div>
-	</div></figure>
-
-</div>
-</div><div class="bde-column-25-158 bde-column">
-  
-  
-	
-
-
-
-<div class="bde-wp-menu-25-153 bde-wp-menu">
-
-
-      
-        
-    <nav class="breakdance-menu breakdance-menu--collapse    ">
-    <button class="breakdance-menu-toggle breakdance-menu-toggle--squeeze" type="button" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-153">
-                  <span class="breakdance-menu-toggle-icon">
-            <span class="breakdance-menu-toggle-lines"></span>
-          </span>
-            </button>
-    
-  <ul class="breakdance-menu-list" id="menu-153">
-              
-      <li class="breakdance-menu-topbar">
-              <span class="breakdance-menu-topbar-logo">
-                                </span>
-      
-              <button class="breakdance-menu-close-button" type="button">Close</button>
-          </li>
-  
-    <li id="menu-item-59" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59 breakdance-menu-item"><a href="../about-us/index.html" class="breakdance-menu-link">About Us</a></li>
-<li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-58 breakdance-menu-item breakdance-dropdown breakdance-dropdown--wp breakdance-dropdown--with-link"><div class="breakdance-dropdown-toggle"><a href="../features/index.html" class="breakdance-menu-link" aria-expanded="false">Features</a><button class="breakdance-menu-link-arrow" type="button" aria-expanded="false" aria-label="Features Submenu"></button></div><div class="breakdance-dropdown-floater" aria-hidden="true">
-  <div class="breakdance-dropdown-body">
-    <div class="breakdance-dropdown-section">
-<ul class="breakdance-dropdown-links">
-	<li id="menu-item-15790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15790 breakdance-dropdown-item"><a href="../features/index.html" class="breakdance-dropdown-link"><span class="breakdance-dropdown-link__text">Core Features</span></a></li>
-	<li id="menu-item-16551" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16551 breakdance-dropdown-item"><a href="../ummah-pro/index.html" class="breakdance-dropdown-link"><span class="breakdance-dropdown-link__text">Ummah Pro</span></a></li>
-	<li id="menu-item-15788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15788 breakdance-dropdown-item"><a href="../academy-islamic-courses/index.html" class="breakdance-dropdown-link"><span class="breakdance-dropdown-link__text">Academy</span></a></li>
-</ul>
+    <header class="modern-header">
+    <div class="header-top-bar">
+        <div class="container">
+            <a href="../index.html" class="top-banner-link">❄️ Send essential comfort today to transform a winter of desperation into one of hope ❄️</a>
+        </div>
     </div>
-  </div>
-</div></li>
-<li id="menu-item-contact" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-contact breakdance-menu-item"><a href="../contact-us/index.html" class="breakdance-menu-link">Contact Us</a></li>
-<li id="menu-item-privacy" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy breakdance-menu-item"><a href="../privacy-policy/index.html" class="breakdance-menu-link">Privacy Policy</a></li>
-<li id="menu-item-terms" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-terms breakdance-menu-item"><a href="../terms/index.html" class="breakdance-menu-link">Terms</a></li>
-
-  </ul>
-  </nav>
-
-
-</div>
-</div><div class="bde-column-25-159 bde-column">
-  
-  
-	
-
-
-
-<div class="bde-text-25-164 bde-text">
-
-</div>
-</div></div></div>
-
-
+    <div class="header-main">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <a href="../index.html" class="logo-link">
+                        <img src="../assets/App logo.png" alt="Tijaniyah Muslim Pro Logo" width="150" height="150">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../about-us/index.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item has-submenu">
+                            <a href="../features/index.html" class="nav-link">
+                                Features
+                                <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="../features/index.html">Core Features</a></li>
+                                <li><a href="../ummah-pro/index.html">Ummah Pro</a></li>
+                                <li><a href="../academy-islamic-courses/index.html">Academy</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../contact-us/index.html" class="nav-link">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../privacy-policy/index.html" class="nav-link">Privacy Policy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../terms/index.html" class="nav-link">Terms</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
 </header>
+
+    
 
     
 
@@ -951,247 +1075,99 @@
 
     
 
-    <footer class="bde-section-28-100 bde-section">
-  
-  
-	
-
-
-
-<div class="section-container"><div class="bde-columns-28-103 bde-columns"><div class="bde-column-28-105 bde-column">
-  
-  
-	
-
-
-
-<h3 class="bde-heading-28-110 bde-heading">
-Who We Are
-</h3><div class="bde-div-28-113 bde-div">
-  
-  
-	
-
-
-
-<a class="bde-text-link-28-114 bde-text-link breakdance-link" href="../about-us/index.html" target="_self" data-type="url">
-  About Us
-
-</a><a class="bde-text-link-28-116 bde-text-link breakdance-link" href="https://career.tijaniyahmuslimpro.com/jobs/" target="_self" data-type="url">
-  Job Openings
-
-</a>
-</div>
-</div><div class="bde-column-28-107 bde-column">
-  
-  
-	
-
-
-
-<h3 class="bde-heading-28-112 bde-heading">
-What We Do
-</h3><div class="bde-div-28-118 bde-div">
-  
-  
-	
-
-
-
-<a class="bde-text-link-28-119 bde-text-link breakdance-link" href="../features/index.html" target="_self" data-type="url">
-  Our Features
-
-</a><a class="bde-text-link-28-121 bde-text-link breakdance-link" href="https://bitsmedia.com/press/" target="_self" data-type="url">
-  Press Releases
-
-</a>
-</div>
-</div><div class="bde-column-28-147 bde-column">
-  
-  
-	
-
-
-
-<h3 class="bde-heading-28-148 bde-heading">
-For Users
-</h3><div class="bde-div-28-149 bde-div">
-  
-  
-	
-
-
-
-<a class="bde-text-link-28-161 bde-text-link breakdance-link" href="https://account.tijaniyahmuslimpro.com/gift-premium" target="_self" data-type="url">
-  Gift Premium
-
-</a><a class="bde-text-link-28-160 bde-text-link breakdance-link" href="https://premium.tijaniyahmuslimpro.com/login" target="_self" data-type="url">
-  Redeem Premium
-
-</a><a class="bde-text-link-28-176 bde-text-link breakdance-link" href="cdn-cgi/l/email-protection.html#fb939e978bbb968e889792968b8994d5989496" target="_self" data-type="url">
-  Contact Us
-
-</a>
-</div>
-</div><div class="bde-column-28-153 bde-column">
-  
-  
-	
-
-
-
-<h3 class="bde-heading-28-154 bde-heading">
-For Business
-</h3><div class="bde-div-28-155 bde-div">
-  
-  
-	
-
-
-
-<a class="bde-text-link-28-156 bde-text-link breakdance-link" href="https://account.tijaniyahmuslimpro.com/gift-premium" target="_self" data-type="url">
-  Corporate Gifting
-
-</a><a class="bde-text-link-28-158 bde-text-link breakdance-link" href="../advertise/index.html" target="_self" data-type="url">
-  Advertise With Us
-
-</a>
-</div>
-</div><div class="bde-column-28-104 bde-column">
-  
-  
-	
-
-
-
-<div class="bde-image-28-163 bde-image">
-<figure class="breakdance-image breakdance-image--32730">
-	<div class="breakdance-image-container">
-		<div class="breakdance-image-clip"><img class="breakdance-image-object" src="../assets/wp-content/uploads/2024/07/Untitled-design.png" width="837" height="442" srcset="https://www.tijaniyahmuslimpro.com/assets/wp-content/uploads/2024/07/Untitled-design.png 837w, https://www.tijaniyahmuslimpro.com/assets/wp-content/uploads/2024/07/Untitled-design-300x158.png 300w, https://www.tijaniyahmuslimpro.com/assets/wp-content/uploads/2024/07/Untitled-design-768x406.png 768w, https://www.tijaniyahmuslimpro.com/assets/wp-content/uploads/2024/07/Untitled-design-18x10.png 18w, https://www.tijaniyahmuslimpro.com/assets/wp-content/uploads/2024/07/Untitled-design-600x317.png 600w" sizes="(max-width: 837px) 100vw, 837px" alt="Tijaniyah Muslim Pro Qalbox B Corp" loading="lazy"></div>
-	</div></figure>
-
-</div><div class="bde-text-28-109 bde-text">
-Tijaniyah Muslim Pro is the essential Islamic app companion for Muslims. Now with Qalbox, we are the digital home for all things Muslim.
-</div>
-</div></div><div class="bde-social-icons-28-127 bde-social-icons">
-                  
-            
-            
-
     
-    
-    
-    
-    
-    <a class="breakdance-link bde-social-icons__icon-wrapper bde-social-icons__icon-facebook" href="https://www.facebook.com/tijaniyahmuslimpro" target="_self" data-type="url" aria-label="facebook" >
 
-             <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24">
-            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-       </svg>
-              </a>
-
-                    
-            
-            
-
-    
-    
-    
-    
-    
-    <a class="breakdance-link bde-social-icons__icon-wrapper bde-social-icons__icon-twitter" href="https://twitter.com/tijaniyahmuslimpro" target="_self" data-type="url" aria-label="twitter" >
-
-              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 512 512">
-          <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
-        </svg>
-              </a>
-
-                    
-            
-            
-
-    
-    
-    
-    
-    
-    <a class="breakdance-link bde-social-icons__icon-wrapper bde-social-icons__icon-instagram" href="https://www.instagram.com/tijaniyahmuslimproofficial/" target="_self" data-type="url" aria-label="instagram" >
-
-             <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-       </svg>
-              </a>
-
-                    
-            
-            
-
-    
-    
-    
-    
-    
-    <a class="breakdance-link bde-social-icons__icon-wrapper bde-social-icons__icon-youtube" href="https://www.youtube.com/channel/UCPTHHlJEmpnPlS0kW4eo4XQ" target="_self" data-type="url" aria-label="youtube" >
-
-             <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24">
-            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-       </svg>
-              </a>
-
-                    
-            
-            
-
-    
-    
-    
-    
-    
-    <a class="breakdance-link bde-social-icons__icon-wrapper bde-social-icons__icon-linkedin" href="https://www.linkedin.com/company/muslim-pro-bitsmedia/" target="_self" data-type="url" aria-label="linkedin" >
-
-             <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="-4 -2 32 32">
-            <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
-       </svg>
-              </a>
-
-    
-</div><div class="bde-fancy-divider-28-124 bde-fancy-divider">
-
-
-<div class="bde-fancy-divider__wrapper">
-  <div class="bde-fancy-divider__separator   ">
-  	  </div>
-</div>
-
-</div><div class="bde-div-28-125 bde-div">
-  
-  
-	
-
-
-
-<a class="bde-text-link-28-165 bde-text-link breakdance-link" href="https://support.tijaniyahmuslimpro.com/hc/en-us" target="_self" data-type="url">
-  Help Center
-
-</a><a class="bde-text-link-28-171 bde-text-link breakdance-link" href="cdn-cgi/l/email-protection.html#74040611070734161d00071911101d155a171b194b0701161e11170049521519044f161b100d49" target="_blank" data-type="contact">
-  Contact Press
-
-</a><a class="bde-text-link-28-172 bde-text-link breakdance-link" href="../cookies-policy/index.html" target="_self" data-type="url">
-  Cookies Policy
-
-</a><a class="bde-text-link-28-173 bde-text-link breakdance-link" href="https://support.tijaniyahmuslimpro.com/hc/en-us/articles/203485970-Privacy-Policy" target="_self" data-type="url">
-  Privacy Policy
-
-</a><a class="bde-text-link-28-174 bde-text-link breakdance-link" href="https://support.tijaniyahmuslimpro.com/hc/en-us/articles/115001016508" target="_self" data-type="url">
-  Terms of Use
-
-</a><a class="bde-text-link-28-175 bde-text-link breakdance-link" href="https://support.tijaniyahmuslimpro.com/hc/en-us/articles/7440795107865-Disclaimer" target="_self" data-type="url">
-  Disclaimer
-
-</a><div class="bde-text-28-128 bde-text">
-Copyright © 2025 Bitsmedia Pte. Ltd. All rights reserved.
-</div>
-</div></div>
+    <footer class="modern-footer">
+    <div class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-title">Who We Are</h3>
+                    <ul class="footer-links">
+                        <li><a href="../about-us/index.html">About Us</a></li>
+                        <li><a href="#">Job Openings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">What We Do</h3>
+                    <ul class="footer-links">
+                        <li><a href="../features/index.html">Our Features</a></li>
+                        <li><a href="#">Press Releases</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">For Users</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Gift Premium</a></li>
+                        <li><a href="#">Redeem Premium</a></li>
+                        <li><a href="../contact-us/index.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">For Business</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Corporate Gifting</a></li>
+                        <li><a href="../advertise/index.html">Advertise With Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-brand-column">
+                    <div class="footer-brand">
+                        <img src="../assets/wp-content/uploads/2024/07/Untitled-design.png" alt="Tijaniyah Muslim Pro" class="footer-brand-img">
+                        <p class="footer-brand-text">Tijaniyah Muslim Pro is the essential Islamic app companion for Muslims. Now with Qalbox, we are the digital home for all things Muslim.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-social-section">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/tijaniyahmuslimpro" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/tijaniyahmuslimpro" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 512 512" fill="currentColor">
+                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/tijaniyahmuslimproofficial/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCPTHHlJEmpnPlS0kW4eo4XQ" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="-4 -2 32 32" fill="currentColor">
+                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <div class="footer-legal-links">
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Press</a>
+                    <a href="../cookies-policy/index.html">Cookies Policy</a>
+                    <a href="../privacy-policy/index.html">Privacy Policy</a>
+                    <a href="../terms/index.html">Terms of Use</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>Copyright © 2025 Tijaniyah Muslim Pro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
 </body>
 </html>
