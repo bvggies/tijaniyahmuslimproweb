@@ -914,7 +914,6 @@ for page in pages:
     <link rel="icon" href="{favicon}" sizes="32x32" />
     <link rel="icon" href="{favicon}" sizes="192x192" />
     <link rel="apple-touch-icon" href="{favicon}" />
-    <link type="text/css" media="all" href="{styles_muslimpro}" rel="stylesheet" />
     <link rel="stylesheet" href="{styles_css}" />
 </head>
 """
