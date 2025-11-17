@@ -31,6 +31,8 @@ def adjust_paths(html_content, is_subdirectory):
     html_content = html_content.replace('href="privacy-policy/index.html"', 'href="../privacy-policy/index.html"')
     html_content = html_content.replace('href="terms/index.html"', 'href="../terms/index.html"')
     html_content = html_content.replace('href="features/index.html"', 'href="../features/index.html"')
+    html_content = html_content.replace('href="ummah-pro/index.html"', 'href="../ummah-pro/index.html"')
+    html_content = html_content.replace('href="academy-islamic-courses/index.html"', 'href="../academy-islamic-courses/index.html"')
     html_content = html_content.replace('href="index.html"', 'href="../index.html"')
     
     return html_content
