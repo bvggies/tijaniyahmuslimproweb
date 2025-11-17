@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Tijaniyah Muslim Pro</title>
     <meta name="description" content="Learn about Tijaniyah Muslim Pro - your trusted Islamic app companion providing prayer times, Quran, and Islamic resources to Muslims worldwide.">
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+    <link rel="canonical" href="../about-us/index.html" />
+    <link rel="icon" href="../assets/App logo.png" sizes="32x32" />
+    <link rel="icon" href="../assets/App logo.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="../assets/App logo.png" />
     <link type="text/css" media="all" href="../styles-muslimpro.css" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css" />
+
     
     <style>
         * {
@@ -18,10 +24,11 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
+            background: #ffffff;
         }
         .hero-section {
             background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 50%, #3d6b4d 100%);
-            padding: 8rem 2rem 6rem;
+            padding: 10rem 2rem 8rem;
             text-align: center;
             color: white;
             position: relative;
@@ -34,58 +41,63 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            opacity: 0.5;
         }
         .hero-section h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
+            letter-spacing: -0.02em;
         }
         .hero-section p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            max-width: 700px;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            max-width: 800px;
             margin: 0 auto;
             opacity: 0.95;
             position: relative;
             z-index: 1;
+            line-height: 1.7;
         }
         .content-section {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
         .card {
             background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
         }
         .card h2 {
             color: #1a472a;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
         }
         .card h3 {
             color: #1a472a;
-            font-size: 1.5rem;
-            margin-top: 2rem;
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
             font-weight: 600;
         }
         .card p {
             color: #555;
-            font-size: 1.05rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.9;
             margin-bottom: 1.5rem;
         }
         .card ul {
@@ -94,153 +106,208 @@
         }
         .card li {
             color: #555;
-            margin-bottom: 0.75rem;
-            line-height: 1.8;
+            margin-bottom: 1rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
         .feature-card {
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
             border: 1px solid #e9ecef;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #1a472a 0%, #2d5a3d 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
         }
         .feature-card:hover {
             border-color: #1a472a;
-            box-shadow: 0 4px 15px rgba(26, 71, 42, 0.1);
+            box-shadow: 0 8px 25px rgba(26, 71, 42, 0.15);
+        }
+        .feature-card:hover::before {
+            transform: scaleY(1);
         }
         .feature-card h3 {
             color: #1a472a;
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
         .feature-card p {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin: 0;
+            line-height: 1.7;
         }
         .stats-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
+        .stat-item {
+            padding: 2rem;
+        }
         .stat-item h3 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #1a472a;
             margin-bottom: 0.5rem;
             font-weight: 700;
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .stat-item p {
             color: #666;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
         }
         .contact-form {
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
             background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
         }
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
             color: #333;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 0.875rem;
+            padding: 1rem;
             border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1rem;
             font-family: inherit;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+            background: #fafafa;
         }
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
             border-color: #1a472a;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(26, 71, 42, 0.1);
         }
         .form-group textarea {
-            min-height: 150px;
+            min-height: 180px;
             resize: vertical;
         }
         .btn-submit {
             background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1.25rem 3rem;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             width: 100%;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(26, 71, 42, 0.3);
+            box-shadow: 0 8px 25px rgba(26, 71, 42, 0.3);
+        }
+        .btn-submit:active {
+            transform: translateY(0);
         }
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
         .contact-card {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            border-radius: 12px;
+            border-radius: 16px;
             border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #1a472a;
         }
         .contact-card h3 {
             color: #1a472a;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 600;
         }
         .contact-card p {
             color: #666;
             margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
         .last-updated {
             font-style: italic;
             color: #888;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             font-size: 0.95rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #e9ecef 50%, transparent 100%);
+            margin: 4rem 0;
         }
         @media (max-width: 768px) {
             .hero-section {
-                padding: 5rem 1.5rem 4rem;
+                padding: 6rem 1.5rem 5rem;
             }
             .content-section {
-                padding: 3rem 1.5rem;
+                padding: 4rem 1.5rem;
             }
             .card {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
             }
             .contact-form {
-                padding: 2rem 1.5rem;
+                padding: 2.5rem 1.5rem;
+            }
+            .stats-grid {
+                gap: 2.5rem;
             }
         }
     </style>
@@ -341,7 +408,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <h1>About Tijaniyah Muslim Pro</h1>
-        <p>Your trusted Islamic companion, empowering Muslims worldwide with accurate prayer times, comprehensive Quran resources, and meaningful Islamic content.</p>
+        <p>Your trusted Islamic companion, empowering Muslims worldwide with accurate prayer times, comprehensive Quran resources, and meaningful Islamic content to strengthen your connection with Allah.</p>
     </section>
 
     <!-- Main Content -->
@@ -460,8 +527,6 @@
             </div>
         </div>
     </section>
-
-    
 
     <footer class="bde-section-28-100 bde-section">
   
