@@ -25,6 +25,27 @@ body {
     overflow-x: hidden;
 }
 
+/* Limit screen image sizes on homepage to match features page (350px) */
+.bde-image-38-487 .breakdance-image-clip,
+.bde-image-38-496 .breakdance-image-clip {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.bde-image-38-487 .breakdance-image-object,
+.bde-image-38-496 .breakdance-image-object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Limit screen images in the blog/features grid section */
+.bde-loop-item__image img[src*="screen"],
+.bde-loop-item__image img[alt*="Screen"] {
+    max-width: 350px;
+    margin: 0 auto;
+    display: block;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
