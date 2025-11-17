@@ -14,6 +14,393 @@
     <link rel="stylesheet" href="../styles.css" />
 </head>
 
+    
+    <style>
+        :root {
+            --primary-color: #1a472a;
+            --primary-dark: #0f2e1a;
+            --primary-light: #2d5a3d;
+            --accent-color: #3d6b4d;
+            --text-dark: #1a1a1a;
+            --text-gray: #555555;
+            --text-light: #888888;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e9ecef;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--accent-color) 100%);
+            padding: 140px 20px 100px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-alt {
+            background: var(--bg-light);
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 32px;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card h2 {
+            color: var(--primary-color);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        
+        .card h3 {
+            color: var(--primary-color);
+            font-size: clamp(1.5rem, 3vw, 1.875rem);
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+        
+        .card p {
+            color: var(--text-gray);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .card ul {
+            margin: 24px 0;
+            padding-left: 28px;
+        }
+        
+        .card li {
+            color: var(--text-gray);
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .grid-item {
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--primary-light));
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .grid-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        
+        .grid-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .grid-item h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .grid-item p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            text-align: center;
+        }
+        
+        .stat {
+            padding: 32px;
+        }
+        
+        .stat-number {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        
+        /* Form */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 56px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-group {
+            margin-bottom: 28px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(26, 71, 42, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26, 71, 42, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: 40px 32px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        
+        .contact-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .contact-card p {
+            color: var(--text-gray);
+            font-size: 1.0625rem;
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 48px 0;
+        }
+        
+        /* Last Updated */
+        .last-updated {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9375rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 20px 80px;
+            }
+            
+            .section {
+                padding: 64px 0;
+            }
+            
+            .card {
+                padding: 32px 24px;
+            }
+            
+            .form-container {
+                padding: 40px 24px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+    </style>
+
+</head>
 <body class="page-template-default page">
     <header class="bde-header-builder-25-100 bde-header-builder bde-header-builder--sticky bde-header-builder--sticky-scroll-fade" data-sticky-scroll-hide-after="900" data-sticky-reveal-on-scroll-up="yes">
 
@@ -106,8 +493,73 @@
 
 </header>
     
-    <!-- Content will be added here -->
-    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="form-container">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="premium">Premium Subscription</option>
+                            <option value="partnership">Partnership Opportunities</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Enter your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p>support@tijaniyahmuslimpro.com</p>
+                </div>
+                <div class="contact-card">
+                    <h3>⏱️ Response Time</h3>
+                    <p>We typically respond within 24-48 hours</p>
+                </div>
+                <div class="contact-card">
+                    <h3>🕐 Office Hours</h3>
+                    <p>Monday - Friday<br>9:00 AM - 6:00 PM GMT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            console.log('Contact form submission:', data);
+            alert('Thank you for contacting us! We will get back to you soon.');
+            event.target.reset();
+        }
+    </script>
+
     <footer class="bde-section-28-100 bde-section">
   
   
